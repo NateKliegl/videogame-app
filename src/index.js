@@ -1,14 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { HeroProvider } from "./shared/HeroContext";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <HeroProvider>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </HeroProvider>,
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
