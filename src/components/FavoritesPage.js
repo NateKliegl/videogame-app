@@ -8,6 +8,15 @@ function FavoritesPage() {
   return (
     <div>
       <div>{user}</div>
+      {favorites.map((val) => (
+        <DisplayPage
+          hero={val}
+          key={val.id}
+          deleteFavorite={deleteFavorite}
+          id={val.id}
+          isFavorite={true}
+        />
+      ))}
     </div>
   );
 }
