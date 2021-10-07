@@ -48,6 +48,8 @@ function SearchPage() {
               isFavorite={favorites.some((fave) => fave.id === val.id)}
               url={val.url}
               name={val.name}
+              strength={val.strength}
+              speed={val.speed}
             />
           ))}
       </div>

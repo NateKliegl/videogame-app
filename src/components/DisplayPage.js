@@ -7,19 +7,23 @@ function DisplayPage({
   isFavorite,
   addFavorite,
   deleteFavorite,
+  strength,
+  speed,
 }) {
   return (
     <div>
-      <h3>
+      <h2>
         {name} {id}
-      </h3>
+      </h2>
+      <h2>Statistics</h2>
+      <p>{strength} Strength</p>
+      <p>{speed} Speed</p>
+
       <img src={url} alt="picture"></img>
       {!isFavorite && (
         <button onClick={() => addFavorite({ name })}>Add</button>
       )}
-      {isFavorite && (
-        <button onClick={() => deleteFavorite({ id })}>Delete</button>
-      )}
+      {isFavorite && <button onClick={() => deleteFavorite(id)}>Delete</button>}
     </div>
   );
 }

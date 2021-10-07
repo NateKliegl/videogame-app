@@ -1,3 +1,4 @@
+import { queryHelpers } from "@testing-library/dom";
 import { useState, useEffect } from "react";
 
 function useFetch(search) {
@@ -6,7 +7,7 @@ function useFetch(search) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image`;
+    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats`;
 
     async function init() {
       if (search.length < 3) return;
@@ -24,6 +25,8 @@ function useFetch(search) {
             name: hero.name,
             id: hero.id,
             url: hero.image.url,
+            strength: hero.powerstats.strength,
+            speed: hero.powerstats.speed,
           }))
         );
       } catch (e) {

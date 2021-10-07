@@ -16,6 +16,8 @@ function FavoritesPage() {
           id={val.id}
           isFavorite={true}
           url={val.url}
+          strength={val.strength}
+          speed={val.speed}
         />
       ))}
     </div>
