@@ -6,7 +6,7 @@ function useFetch(search) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}`;
+    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image`;
 
     async function init() {
       if (search.length < 3) return;
@@ -17,17 +17,20 @@ function useFetch(search) {
       try {
         const response = await fetch(url);
         const json = await response.json();
+        console.log(json);
 
         setData(() =>
-          json.data.map((hero) => ({
+          json.results.map((hero) => ({
             name: hero.name,
             id: hero.id,
+            url: hero.image.url,
           }))
         );
       } catch (e) {
+        console.log(e);
         setError(e);
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     }
     init();

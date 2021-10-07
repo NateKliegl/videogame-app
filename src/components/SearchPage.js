@@ -46,6 +46,8 @@ function SearchPage() {
               deleteFavorite={deleteFavorite}
               addFavorite={addFavorite}
               isFavorite={favorites.some((fave) => fave.id === val.id)}
+              url={val.url}
+              name={val.name}
             />
           ))}
       </div>

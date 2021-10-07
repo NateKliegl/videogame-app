@@ -11,9 +11,9 @@ function DisplayPage({
   return (
     <div>
       <h3>
-        {" "}
-        {name} - {id}{" "}
+        {name} {id}
       </h3>
+      <img src={url} alt="picture"></img>
       {!isFavorite && (
         <button onClick={() => addFavorite({ name })}>Add</button>
       )}

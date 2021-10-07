@@ -11,10 +11,11 @@ function FavoritesPage() {
       {favorites.map((val) => (
         <DisplayPage
           hero={val}
-          key={val.id}
+          name={val.name}
           deleteFavorite={deleteFavorite}
           id={val.id}
           isFavorite={true}
+          url={val.url}
         />
       ))}
     </div>
