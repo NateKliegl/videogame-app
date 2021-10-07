@@ -19,6 +19,7 @@ function Menu() {
           <NavLink className="link" to="/favorites">
             Favorites
           </NavLink>
+          <button onClick={clearState}>Logout</button>
         </>
       )}
     </nav>

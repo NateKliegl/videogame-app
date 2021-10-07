@@ -17,13 +17,13 @@ function App() {
     <Router>
       <Menu />
       <Switch>
-        <ProtectedRoute path="/login">
+        <ProtectedRoute armor={false} path="/login">
           <LoginPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/search">
+        <ProtectedRoute armor={true} path="/search">
           <SearchPage />
         </ProtectedRoute>
-        <ProtectedRoute path="/favorites">
+        <ProtectedRoute armor={true} path="/favorites">
           <FavoritesPage />
         </ProtectedRoute>
         <Route path="*">

@@ -6,13 +6,34 @@ function useFetch(search) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    effect;
-    return () => {
-      cleanup;
-    };
-  }, [input]);
+    const url = `https://superheroapi.com/api/4283609898424396/search&query=${search}/name`;
 
-  return <div></div>;
+    async function init() {
+      if (search.length < 3) return;
+
+      setError(null);
+      setLoading(true);
+      setData([]);
+      try {
+        const response = await fetch(url);
+        const json = await response.json();
+
+        setData(() =>
+          json.data.map((hero) => ({
+            name: hero.name,
+            id: hero.id,
+          }))
+        );
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(true);
+      }
+    }
+    init();
+  }, [search]);
+
+  return { data, loading, error };
 }
 
 export default useFetch;
