@@ -18,6 +18,11 @@ function FavoritesPage() {
           url={val.url}
           strength={val.strength}
           speed={val.speed}
+          power={val.power}
+          intelligence={val.intelligence}
+          publisher={val.publisher}
+          alignment={val.alignment}
+          fullName={val.fullName}
         />
       ))}
     </div>

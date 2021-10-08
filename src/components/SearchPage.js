@@ -18,7 +18,7 @@ function SearchPage() {
 
   return (
     <div>
-      <div>
+      <div className="searchBar">
         <label htmlFor="search">Search</label>
         <input
           id="search"
@@ -32,7 +32,9 @@ function SearchPage() {
           }}
         ></input>
       </div>
-      <button onClick={(e) => setQuery(queryInput)}>Search</button>
+      <button onClick={(e) => setQuery(queryInput)} className="searchButton">
+        Search
+      </button>
 
       <div>
         {loading && <div>LOADING PLEASE WAIT</div>}
@@ -50,6 +52,11 @@ function SearchPage() {
               name={val.name}
               strength={val.strength}
               speed={val.speed}
+              power={val.power}
+              intelligence={val.intelligence}
+              publisher={val.publisher}
+              alignment={val.alignment}
+              fullName={val.fullName}
             />
           ))}
       </div>

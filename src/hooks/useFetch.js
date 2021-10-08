@@ -1,4 +1,3 @@
-import { queryHelpers } from "@testing-library/dom";
 import { useState, useEffect } from "react";
 
 function useFetch(search) {
@@ -7,7 +6,7 @@ function useFetch(search) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats`;
+    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats/biography`;
 
     async function init() {
       if (search.length < 3) return;
@@ -27,6 +26,12 @@ function useFetch(search) {
             url: hero.image.url,
             strength: hero.powerstats.strength,
             speed: hero.powerstats.speed,
+            power: hero.powerstats.power,
+            intelligence: hero.powerstats.intelligence,
+            publisher: hero.biography.publisher,
+            fullName: hero.biography["full-name"],
+
+            alignment: hero.biography.alignment,
           }))
         );
       } catch (e) {

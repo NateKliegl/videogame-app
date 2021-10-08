@@ -5,7 +5,7 @@ import { HeroContext } from "../shared/HeroContext";
 function Menu() {
   const { user, clearState } = useContext(HeroContext);
   return (
-    <nav>
+    <nav className="flex">
       {!user && (
         <NavLink className="link" to="/login">
           Login
@@ -19,7 +19,9 @@ function Menu() {
           <NavLink className="link" to="/favorites">
             Favorites
           </NavLink>
-          <button onClick={clearState}>Logout</button>
+          <button onClick={clearState} className="link">
+            Logout
+          </button>
         </>
       )}
     </nav>
