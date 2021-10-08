@@ -30,6 +30,8 @@ function useFetch(search) {
             intelligence: hero.powerstats.intelligence,
             publisher: hero.biography.publisher,
             fullName: hero.biography["full-name"],
+            firstShow: hero.biography["first-appearance"],
+            birth: hero.biography["place-of-birth"],
 
             alignment: hero.biography.alignment,
           }))

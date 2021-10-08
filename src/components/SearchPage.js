@@ -57,6 +57,8 @@ function SearchPage() {
               publisher={val.publisher}
               alignment={val.alignment}
               fullName={val.fullName}
+              firstShow={val.firstShow}
+              birth={val.birth}
             />
           ))}
       </div>

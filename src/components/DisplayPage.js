@@ -1,5 +1,4 @@
 import React from "react";
-import { HeroContext } from "../shared/HeroContext";
 
 function DisplayPage({
   name,
@@ -15,6 +14,8 @@ function DisplayPage({
   publisher,
   fullName,
   alignment,
+  firstShow,
+  birth,
 }) {
   return (
     <div className="searchPage">
@@ -33,8 +34,11 @@ function DisplayPage({
         <h2>Biography</h2>
         <p>Published by {publisher}</p>
         <p>Full Name is {fullName}</p>
-
         <p>Alignment {alignment}</p>
+        <p>First Appearance was {firstShow}</p>
+        <p>
+          {name} place of birth was {birth}
+        </p>
       </div>
 
       <img src={url} alt="picture"></img>

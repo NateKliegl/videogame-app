@@ -36,7 +36,7 @@ export default function LoginPage() {
       </div>
       <button
         onClick={() => {
-          if (username < 3 || password < 3) {
+          if (username.length < 3 || password.length < 3) {
             setError(true);
             return;
           }
