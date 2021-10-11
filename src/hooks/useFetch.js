@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 function useFetch(search) {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats/biography`;
+    const url = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats/biography/appearance`;
 
     async function init() {
       if (search.length < 3) return;
@@ -32,8 +32,11 @@ function useFetch(search) {
             fullName: hero.biography["full-name"],
             firstShow: hero.biography["first-appearance"],
             birth: hero.biography["place-of-birth"],
-
             alignment: hero.biography.alignment,
+            gender: hero.appearance.gender,
+            race: hero.appearance.race,
+            height: hero.appearance.height,
+            weight: hero.appearance.weight,
           }))
         );
       } catch (e) {

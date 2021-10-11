@@ -16,14 +16,31 @@ function DisplayPage({
   alignment,
   firstShow,
   birth,
+  gender,
+  race,
+  height,
+  weight,
 }) {
   return (
     <div className="searchPage">
-      <h2>
-        {name} {id}
-      </h2>
+      <h2>{name}</h2>
+      <img src={url} alt="picture"></img>
+      {!isFavorite && (
+        <button
+          onClick={() => addFavorite({ name, url })}
+          className="addButton"
+        >
+          Add
+        </button>
+      )}
+      {isFavorite && (
+        <button onClick={() => deleteFavorite(id)} className="deleteButton">
+          Delete
+        </button>
+      )}
       <div className="stats">
         <h2>Statistics</h2>
+
         <p>{strength} Strength</p>
         <p>{speed} Speed</p>
         <p>{power} Power</p>
@@ -40,12 +57,13 @@ function DisplayPage({
           {name} place of birth was {birth}
         </p>
       </div>
-
-      <img src={url} alt="picture"></img>
-      {!isFavorite && (
-        <button onClick={() => addFavorite({ name, url })}>Add</button>
-      )}
-      {isFavorite && <button onClick={() => deleteFavorite(id)}>Delete</button>}
+      <div className="physical">
+        <h2>Physical Features</h2>
+        <p>Gender: {gender}</p>
+        <p>Race: {race}</p>
+        <p>Height: {height}</p>
+        <p>Weight: {weight}</p>
+      </div>
     </div>
   );
 }

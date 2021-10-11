@@ -8,10 +8,11 @@ export default function LoginPage() {
   const { setUser } = useContext(HeroContext);
 
   return (
-    <div>
+    <div className="loginPage">
       <div>
         <label htmlFor="Username">Username</label>
         <input
+          className="username"
           id="username"
           value={username}
           placeholder="Username"
@@ -25,6 +26,7 @@ export default function LoginPage() {
         <label htmlFor="Password">Password</label>
         <input
           id="password"
+          className="password"
           type="password"
           placeholder="Password"
           value={password}
@@ -35,6 +37,7 @@ export default function LoginPage() {
           "Password must be more than 3 characters"}
       </div>
       <button
+        className="loginButton"
         onClick={() => {
           if (username.length < 3 || password.length < 3) {
             setError(true);

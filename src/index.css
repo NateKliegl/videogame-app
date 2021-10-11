@@ -1,9 +1,9 @@
 .link {
   margin: 2px;
   text-align: center;
-  background-color: red;
+  background-color: rgb(170, 169, 169);
   flex-basis: calc(100% / 3 - 4px);
-  color: white;
+  color: red;
 }
 .flex {
   display: flex;
@@ -20,6 +20,7 @@
 #search {
   width: 315px;
 }
+
 .searchBar {
   margin-left: 38%;
   width: 26%;
@@ -27,4 +28,60 @@
 .searchButton {
   margin-left: 38%;
   width: 26%;
+}
+/* login css */
+.loginHeader {
+  background-color: black;
+  color: red;
+  text-align: center;
+  font-size: 30px;
+  width: 100%;
+  height: 40px;
+}
+
+.loginPage {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10%;
+  border: 3px solid black;
+  margin-left: 30%;
+  margin-right: 30%;
+  height: 200px;
+  background-color: rgb(170, 169, 169);
+}
+
+.username {
+  margin-top: 10%;
+}
+
+.password {
+  margin-top: 20%;
+}
+.loginButton {
+  width: 175px;
+  margin-left: 12%;
+}
+/* search page css */
+
+.header {
+  width: 100%;
+  height: 40px;
+  background-color: black;
+
+  color: red;
+  font-size: 30px;
+  display: flex;
+}
+.searchPage {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.addButton,
+.deleteButton {
+  height: 40px;
+}
+
+.user {
+  font-size: 40px;
 }

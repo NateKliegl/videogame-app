@@ -19,11 +19,13 @@ function SearchPage() {
   return (
     <div>
       <div className="searchBar">
-        <label htmlFor="search">Search</label>
+        <label htmlFor="search" className="user">
+          {user}
+        </label>
         <input
           id="search"
           value={queryInput}
-          placeholder="Search Your Favorite Hero"
+          placeholder="Search Your Favorite Hero/Villain"
           onChange={(e) => setQueryInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.code === "Enter") {
@@ -39,9 +41,9 @@ function SearchPage() {
       <div>
         {loading && <div>LOADING PLEASE WAIT</div>}
         {error && !loading && <div>{error}</div>}
-        {data &&
+        {search &&
           !loading &&
-          data.map((val) => (
+          search.map((val) => (
             <DisplayPage
               id={val.id}
               key={val.id}
@@ -59,6 +61,10 @@ function SearchPage() {
               fullName={val.fullName}
               firstShow={val.firstShow}
               birth={val.birth}
+              gender={val.gender}
+              race={val.race}
+              height={val.height}
+              weight={val.weight}
             />
           ))}
       </div>

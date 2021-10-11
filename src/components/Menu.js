@@ -7,17 +7,23 @@ function Menu() {
   return (
     <nav className="flex">
       {!user && (
-        <NavLink className="link" to="/login">
-          Login
-        </NavLink>
+        <header className="loginHeader">
+          <NavLink className="link" to="/login">
+            Login
+          </NavLink>
+          Find Your Favorite Super Heroes and Villains
+        </header>
       )}
       {user && (
         <>
+          <header className="header">
+            Search Up To 700+ Heroes and Villains and Choose Your Favorites!
+          </header>
           <NavLink className="link" to="/search">
-            Search
+            Search Page
           </NavLink>
           <NavLink className="link" to="/favorites">
-            Favorites
+            Favorite Heroes/Villains
           </NavLink>
           <button onClick={clearState} className="link">
             Logout

@@ -7,7 +7,7 @@ function FavoritesPage() {
 
   return (
     <div>
-      <div>{user}</div>
+      <div className="user">{user}</div>
       {favorites.map((val) => (
         <DisplayPage
           hero={val}
@@ -25,6 +25,10 @@ function FavoritesPage() {
           fullName={val.fullName}
           firstShow={val.firstShow}
           birth={val.birth}
+          gender={val.gender}
+          race={val.race}
+          height={val.height}
+          weight={val.weight}
         />
       ))}
     </div>
