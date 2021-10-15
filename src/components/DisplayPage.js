@@ -27,7 +27,7 @@ function DisplayPage({
       <img src={url} alt="picture"></img>
       {!isFavorite && (
         <button
-          onClick={() => addFavorite({ name, url })}
+          onClick={() => addFavorite({ url, name, id })}
           className="addButton"
         >
           Add
