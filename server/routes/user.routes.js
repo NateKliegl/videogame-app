@@ -4,7 +4,7 @@ const { login, signup } = require("../models/users.models");
 
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;
-  if (ValidityState(username, password)) {
+  if (validate(username, password)) {
     return res.send({
       success: false,
       error: "Invalid information",
@@ -16,7 +16,7 @@ router.post("/signup", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
-  if (ValidityState(username, password)) {
+  if (validate(username, password)) {
     return res.send({
       success: false,
       error: "Invalid information",
