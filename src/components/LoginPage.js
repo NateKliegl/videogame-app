@@ -1,11 +1,20 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { HeroContext } from "../shared/HeroContext";
+import useAxios from "../hooks/useAxios";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const { setUser } = useContext(HeroContext);
+  const [userObj, setUserObj] = useState(null);
+  const { json } = useAxios("/api/users/login", "post", userObj);
+
+  useEffect(() => {
+    if (json && json.success) {
+      setUser(json.data);
+    }
+  }, [setUser, json]);
 
   return (
     <div className="loginPage">
@@ -43,11 +52,12 @@ export default function LoginPage() {
             setError(true);
             return;
           }
-          setUser(username);
+          setUserObj({ username, password });
         }}
       >
         Login
       </button>
+      <div>{json && json.error}</div>
     </div>
   );
 }
