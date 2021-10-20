@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
-function useFetch(search) {
-  const [data, setData] = useState(null);
+function useAxios(url, method, body = null) {
+  const [json, setJson] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -52,7 +53,7 @@ function useFetch(search) {
   return { data, loading, error };
 }
 
-export default useFetch;
+export default useAxios;
 
 // if (json.response === "error"){
 //setError(json.error)

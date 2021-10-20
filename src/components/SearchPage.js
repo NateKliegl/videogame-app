@@ -1,20 +1,42 @@
 import React, { useEffect, useState, useContext } from "react";
-import useFetch from "../hooks/useFetch";
+import useAxios from "../hooks/useAxios";
 import DisplayPage from "./DisplayPage";
 import { HeroContext } from "../shared/HeroContext";
 
+const heroURL = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats/biography/appearance`;
+
 function SearchPage() {
-  const [query, setQuery] = useState("");
-  const [queryInput, setQueryInput] = useState("");
-  const { data, error, loading } = useFetch(query);
   const { addFavorite, deleteFavorite, user, favorites, search, setSearch } =
     useContext(HeroContext);
 
+  const [query, setQuery] = useState("");
+  const [queryInput, setQueryInput] = useState("");
+  const { json, error, loading } = useAxios(query);
+
   useEffect(() => {
-    if (data) {
-      setSearch(data);
+    if (json) {
+      setSearch(() =>
+        json.results.map((hero) => ({
+          name: hero.name,
+          id: hero.id,
+          url: hero.image.url,
+          strength: hero.powerstats.strength,
+          speed: hero.powerstats.speed,
+          power: hero.powerstats.power,
+          intelligence: hero.powerstats.intelligence,
+          publisher: hero.biography.publisher,
+          fullName: hero.biography["full-name"],
+          firstShow: hero.biography["first-appearance"],
+          birth: hero.biography["place-of-birth"],
+          alignment: hero.biography.alignment,
+          gender: hero.appearance.gender,
+          race: hero.appearance.race,
+          height: hero.appearance.height,
+          weight: hero.appearance.weight,
+        }))
+      );
     }
-  }, [data, setSearch]);
+  }, [json, setSearch]);
 
   return (
     <div>
@@ -34,7 +56,10 @@ function SearchPage() {
           }}
         ></input>
       </div>
-      <button onClick={(e) => setQuery(queryInput)} className="searchButton">
+      <button
+        onClick={() => setQuery(heroURL + queryInput)}
+        className="searchButton"
+      >
         Search
       </button>
 
@@ -45,11 +70,13 @@ function SearchPage() {
           !loading &&
           search.map((val) => (
             <DisplayPage
-              id={val.id}
-              key={val.id}
+              hero_id={val.hero_id}
+              key={val.hero_id}
               deleteFavorite={deleteFavorite}
               addFavorite={addFavorite}
-              isFavorite={favorites.some((fave) => fave.id === val.id)}
+              isFavorite={favorites.some(
+                (fave) => fave.hero_id === val.hero_id
+              )}
               url={val.url}
               name={val.name}
               strength={val.strength}
