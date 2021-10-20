@@ -2,7 +2,7 @@ import React from "react";
 
 function DisplayPage({
   name,
-  id,
+  hero_id,
   url,
   isFavorite,
   addFavorite,
@@ -27,14 +27,17 @@ function DisplayPage({
       src={url} alt="picture"
       {!isFavorite && (
         <button
-          onClick={() => addFavorite({ url, name, id })}
+          onClick={() => addFavorite({ url, name, hero_id })}
           className="addButton"
         >
           Add
         </button>
       )}
       {isFavorite && (
-        <button onClick={() => deleteFavorite(id)} className="deleteButton">
+        <button
+          onClick={() => deleteFavorite(hero_id)}
+          className="deleteButton"
+        >
           Delete
         </button>
       )}
