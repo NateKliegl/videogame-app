@@ -24,7 +24,7 @@ function DisplayPage({
   return (
     <div className="searchPage">
       <h2>{name}</h2>
-      <img src={url} alt="picture"></img>
+      src={url} alt="picture"
       {!isFavorite && (
         <button
           onClick={() => addFavorite({ url, name, id })}
@@ -46,7 +46,6 @@ function DisplayPage({
         <p>{power} Power</p>
         <p>{intelligence} Intelligence</p>
       </div>
-
       <div className="biography">
         <h2>Biography</h2>
         <p>Published by {publisher}</p>
