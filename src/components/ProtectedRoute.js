@@ -7,7 +7,7 @@ export default function ProtectedRoute({ children, path, armor }) {
 
   const redirectTo = useMemo(() => (armor ? "/login" : "/search"), [armor]);
 
-  if ((user && armor) || (!user && !armor)) {
+  if ((user.username && armor) || (!user.username && !armor)) {
     return <Route path={path}>{children}</Route>;
   } else {
     return (

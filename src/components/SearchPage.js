@@ -42,7 +42,7 @@ function SearchPage() {
     <div>
       <div className="searchBar">
         <label htmlFor="search" className="user">
-          {user}
+          {user.username}
         </label>
         <input
           id="search"
