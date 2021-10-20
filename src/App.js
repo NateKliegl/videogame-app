@@ -12,7 +12,7 @@ import SearchPage from "./components/SearchPage";
 import FavoritesPage from "./components/FavoritesPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Menu />
@@ -33,5 +33,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

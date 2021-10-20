@@ -9,7 +9,7 @@ const {
 router.post("/add", (req, res) => {
   const hero = req.body;
 
-  if (!hero.title || !hero.url || !hero.her0_id) {
+  if (!hero.title || !hero.url || !hero.hero_id) {
     return res.send({
       success: false,
       error: "Invalid information",
@@ -26,3 +26,4 @@ router.delete("/delete/:id", (req, res) => {
 router.get("/user/:user_id", (req, res) => {
   byUserId(res, req.params.user_id);
 });
+module.exports = router;

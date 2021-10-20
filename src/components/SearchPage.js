@@ -3,7 +3,7 @@ import useAxios from "../hooks/useAxios";
 import DisplayPage from "./DisplayPage";
 import { HeroContext } from "../shared/HeroContext";
 
-const heroURL = `https://superheroapi.com/api.php/4283609898424396/search/${search}/image/powerstats/biography/appearance`;
+const heroURL = `https://superheroapi.com/api.php/4283609898424396/search/image/powerstats/biography/appearance`;
 
 function SearchPage() {
   const { addFavorite, deleteFavorite, user, favorites, search, setSearch } =
