@@ -32,7 +32,7 @@ export function HeroProvider(props) {
 
   const addFavorite = useCallback(
     async (hero) => {
-      const [data] = await axios.post("/api/favorites/add", {
+      const { data } = await axios.post("/api/favorites/add", {
         ...hero,
       });
       setFavorites((curr) => {
@@ -44,9 +44,7 @@ export function HeroProvider(props) {
 
   const deleteFavorite = useCallback(
     async (id) => {
-      const { data } = await axios.deleteFavorite(
-        `/api/favorites/delete/${id}`
-      );
+      const { data } = await axios.delete(`/api/favorites/delete/${id}`);
       setFavorites((curr) => {
         return curr.filter((val) => val.hero_id != data.data);
       });
@@ -56,6 +54,7 @@ export function HeroProvider(props) {
 
   const clearState = useCallback(async () => {
     try {
+      await axios.get("/api/users/logout");
       setUser({});
       setSearch([]);
       setFavorites([]);

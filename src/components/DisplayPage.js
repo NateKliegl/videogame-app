@@ -24,7 +24,7 @@ function DisplayPage({
   return (
     <div className="searchPage">
       <h2>{name}</h2>
-      src={url} alt="picture"
+      <img src={url} />
       {!isFavorite && (
         <button
           onClick={() => addFavorite({ url, name, hero_id })}

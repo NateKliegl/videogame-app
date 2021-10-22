@@ -1,6 +1,24 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth.middleware");
 const { login, signup } = require("../models/user.models");
+
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt");
+  return res.send({
+    success: true,
+    error: null,
+    data: "Signed Out",
+  });
+});
+
+router.get("/verify", auth, (req, res) => {
+  return res.send({
+    success: true,
+    error: null,
+    data: { username: req.user.username },
+  });
+});
 
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;

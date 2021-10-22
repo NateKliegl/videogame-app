@@ -7,13 +7,14 @@ function FavoritesPage() {
 
   return (
     <div>
-      <div className="user">{user}</div>
+      <div className="user">{user.username}</div>
       {favorites.map((val) => (
         <DisplayPage
           hero={val}
           name={val.name}
+          key={val.hero_id}
           deleteFavorite={deleteFavorite}
-          id={val.id}
+          hero_id={val.hero_id}
           isFavorite={true}
           url={val.url}
           strength={val.strength}

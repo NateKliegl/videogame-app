@@ -5,9 +5,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const userRoutes = require("./server/routes/user.routes");
 const favoritesRoutes = require("./server/routes/favorites.routes");
+const passport = require("./server/config/passport.conf");
 
 app.use(express.json());
 app.use(express.static(__dirname + "/build"));
+app.use(cookieParser());
+app.use(passport.initialize());
 app.use("/api/users", userRoutes);
 app.use("/api/favorites", favoritesRoutes);
 

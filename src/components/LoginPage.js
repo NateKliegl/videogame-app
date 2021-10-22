@@ -48,7 +48,7 @@ export default function LoginPage() {
       <button
         className="loginButton"
         onClick={() => {
-          if (username.length < 3 || password.length < 3) {
+          if (username.length < 3 || password.length < 8) {
             setError(true);
             return;
           }

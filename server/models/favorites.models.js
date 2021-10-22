@@ -2,11 +2,11 @@ const query = require("../config/mysql.conf");
 
 async function addFavorite(res, hero) {
   try {
-    let { insertId } = await query("INSERT INTO favorites SET ?", hero);
+    await query("INSERT INTO favorites SET ?", hero);
     return res.send({
       success: true,
       error: null,
-      data: { ...hero, id: insertId },
+      data: hero,
     });
   } catch (e) {
     return res.send({
@@ -17,9 +17,12 @@ async function addFavorite(res, hero) {
   }
 }
 
-async function deleteFavorite(res, id) {
+async function deleteFavorite(res, id, user_id) {
   try {
-    await query("DELETE FROM favorites WHERE favorites.id = ?", [id]);
+    await query(
+      "DELETE FROM favorites WHERE favorites.hero_id = ? AND favorites.user_id = ?",
+      [id, user_id]
+    );
     return res.send({
       success: true,
       error: null,

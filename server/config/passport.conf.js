@@ -17,13 +17,13 @@ const jwtOptions = {
 };
 
 passport.use(
-  jwt,
+  "jwt",
   new Strategy(jwtOptions, async function (payload, done) {
     if (!payload || !payload.uuid) {
       return done(null, false, "Invalid credentials");
     }
     try {
-      const [user] = await query("SELECT FROM * users WHERE users.uuid = ?", [
+      const [user] = await query("SELECT * FROM users WHERE users.uuid = ?", [
         payload.uuid,
       ]);
       if (!user) {

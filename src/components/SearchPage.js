@@ -3,22 +3,22 @@ import useAxios from "../hooks/useAxios";
 import DisplayPage from "./DisplayPage";
 import { HeroContext } from "../shared/HeroContext";
 
-const heroURL = `https://superheroapi.com/api.php/4283609898424396/search/image/powerstats/biography/appearance`;
+const heroURL = "https://superheroapi.com/api.php/4283609898424396/search/";
 
 function SearchPage() {
-  const { addFavorite, deleteFavorite, user, favorites, search, setSearch } =
+  const { addFavorite, deleteFavorite, favorites, search, setSearch } =
     useContext(HeroContext);
 
   const [query, setQuery] = useState("");
   const [queryInput, setQueryInput] = useState("");
-  const { json, error, loading } = useAxios(query);
+  const { json, error, loading } = useAxios(query, "get");
 
   useEffect(() => {
     if (json) {
       setSearch(() =>
         json.results.map((hero) => ({
           name: hero.name,
-          id: hero.id,
+          hero_id: hero.id,
           url: hero.image.url,
           strength: hero.powerstats.strength,
           speed: hero.powerstats.speed,
@@ -41,9 +41,7 @@ function SearchPage() {
   return (
     <div>
       <div className="searchBar">
-        <label htmlFor="search" className="user">
-          {user.username}
-        </label>
+        <label htmlFor="search" className="user"></label>
         <input
           id="search"
           value={queryInput}
@@ -51,7 +49,7 @@ function SearchPage() {
           onChange={(e) => setQueryInput(e.target.value)}
           onKeyPress={(e) => {
             if (e.code === "Enter") {
-              setQuery(queryInput);
+              setQuery(heroURL + queryInput);
             }
           }}
         ></input>

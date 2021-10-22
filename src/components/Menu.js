@@ -6,15 +6,20 @@ function Menu() {
   const { user, clearState } = useContext(HeroContext);
   return (
     <nav className="flex">
-      {!user && (
-        <header className="loginHeader">
-          <NavLink className="link" to="/login">
-            Login
-          </NavLink>
-          Find Your Favorite Super Heroes and Villains
-        </header>
+      {!user.username && (
+        <>
+          <header className="loginHeader">
+            <NavLink className="link" to="/login">
+              Login
+            </NavLink>
+            <NavLink className="link" to="/signup">
+              Signup
+            </NavLink>
+            Find Your Favorite Super Heroes and Villains
+          </header>
+        </>
       )}
-      {user && (
+      {user.username && (
         <>
           <header className="header">
             Search Up To 700+ Heroes and Villains and Choose Your Favorites!
