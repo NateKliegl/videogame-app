@@ -24,10 +24,12 @@
 .searchBar {
   margin-left: 38%;
   width: 26%;
+  flex-basis: calc(100% / 3 - 4px);
 }
 .searchButton {
   margin-left: 38%;
   width: 26%;
+  flex-basis: calc(100% / 3 - 4px);
 }
 /* login css */
 .loginHeader {
